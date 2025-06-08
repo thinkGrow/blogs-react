@@ -1,19 +1,19 @@
 import React from "react";
 import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handleBookmark }) => {
   const {
-    id,
+    // id,
     cover,
     title,
     author_img,
     author,
-    posted_date,
-    reading_time,
+    // posted_date,
+    // reading_time,
     hashtags,
   } = blog;
 
-  console.log(id, posted_date, reading_time);
+  // console.log(id, posted_date, reading_time);
 
   return (
     <div className="card bg-base-100 shadow-sm">
@@ -24,7 +24,9 @@ const Blog = ({ blog }) => {
         <div className="author flex justify-around items-center ">
           <h3 className="text-xl text-gray-400">{author}</h3>
           <img className="w-16" src={author_img} alt="" />
-          <FaBookmark size={25} />
+          <button onClick={() => handleBookmark(blog)}>
+            <FaBookmark size={25} />
+          </button>
         </div>
         <h2 className="card-title h-20">{title}</h2>
 

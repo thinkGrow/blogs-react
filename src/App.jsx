@@ -1,10 +1,18 @@
-// import { useState } from 'react'
+import { useState } from "react";
 import "./App.css";
 import Blogs from "./components/Blogs/Blogs";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   // const [count, setCount] = useState(0)
+
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const handleBookmark = (blog) => {
+    const newBookmarks = [...bookmarks, blog];
+    setBookmarks(newBookmarks);
+    console.log(bookmarks);
+  };
 
   return (
     <>
@@ -15,11 +23,15 @@ function App() {
 
         <div className="main flex justify-between w-11/12 mx-auto text-center">
           <div className="left-container w-[70%]">
-            <Blogs></Blogs>
+            <Blogs handleBookmark={handleBookmark}></Blogs>
           </div>
           <div className="right-container w-[30%]">
             <h1>Reading time: 0</h1>
             <h1>Bookmarked count: 0</h1>
+
+            {bookmarks.map((marked) => (
+              <p>{marked.title}</p>
+            ))}
           </div>
         </div>
       </div>
