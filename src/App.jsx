@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-      <div className="bg-gray-200">
-        <div className="w-11/12 mx-auto">
+      <div className="bg-gray-200 pb-10">
+        <div className="w-11/12 mx-auto mb-10">
           <Navbar></Navbar>
         </div>
 
