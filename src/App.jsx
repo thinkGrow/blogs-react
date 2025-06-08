@@ -8,8 +8,21 @@ function App() {
 
   return (
     <>
-      <Navbar></Navbar>
-      <Blogs></Blogs>
+      <div className="bg-gray-200">
+        <div className="w-11/12 mx-auto">
+          <Navbar></Navbar>
+        </div>
+
+        <div className="main flex justify-between w-11/12 mx-auto text-center">
+          <div className="left-container w-[70%]">
+            <Blogs></Blogs>
+          </div>
+          <div className="right-container w-[30%]">
+            <h1>Reading time: 0</h1>
+            <h1>Bookmarked count: 0</h1>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
