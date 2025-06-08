@@ -7,11 +7,18 @@ function App() {
   // const [count, setCount] = useState(0)
 
   const [bookmarks, setBookmarks] = useState([]);
+  const [readTime, setReadTime] = useState(0);
 
   const handleBookmark = (blog) => {
     const newBookmarks = [...bookmarks, blog];
     setBookmarks(newBookmarks);
-    console.log(bookmarks);
+  };
+
+  const handleRead = (time) => {
+    // console.log("mark as read", blog.reading_time);
+    // const newReadTime = readTime + blog.reading_time;
+
+    setReadTime(readTime + time);
   };
 
   return (
@@ -23,11 +30,14 @@ function App() {
 
         <div className="main flex justify-between w-11/12 mx-auto text-center">
           <div className="left-container w-[70%]">
-            <Blogs handleBookmark={handleBookmark}></Blogs>
+            <Blogs
+              handleBookmark={handleBookmark}
+              handleRead={handleRead}
+            ></Blogs>
           </div>
           <div className="right-container w-[30%]">
-            <h1>Reading time: 0</h1>
-            <h1>Bookmarked count: 0</h1>
+            <h1>Reading time: {readTime}</h1>
+            <h1>Bookmarked count: {bookmarks.length}</h1>
 
             {bookmarks.map((marked) => (
               <p>{marked.title}</p>
